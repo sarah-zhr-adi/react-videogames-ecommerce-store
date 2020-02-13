@@ -1,21 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navigation from './components/Navigation/Navigation';
+import ProductList from './components/ProductList/ProductList';
+import Details from './components/Details/Details';
+import Cart from './components/Cart/Cart';
+import Default from './components/Default/Default';
 
 function App() {
   return (
-    <div className="container">
-    	<div className="row">
-    		<div className="col-6">
-    			column 1 
-	    	</div>
-	    	<div className="col-6">
-				column 2
-				<i class="fa fa-bandcamp" aria-hidden="true"></i>
-	    	</div>
-    	</div>
-    </div>
+    <>
+    <Navigation/>
+    <Switch>
+      <Route exact path="/" component={ProductList}></Route>
+      <Route path="/details" component={Details}></Route>
+      <Route path="/cart" component={Cart}></Route>
+      <Route component={Default}></Route>
+    </Switch>
+    </>
   );
 }
 

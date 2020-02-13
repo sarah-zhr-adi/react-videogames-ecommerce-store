@@ -9,5 +9,18 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: var(--mainWhite) !important;
-  color: var(--mainDarl) !important;
+  color: var(--mainDark) !important;
+}
+
+.text-title {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.text-orange {
+  color: var(--mainOrange);
+}
+
+.text-light-orange {
+  color: var(--lightOrange);
 }
