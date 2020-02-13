@@ -1,0 +1,13 @@
+:root {
+  --mainOrange: #f18867;
+  --lightOrange: #ecb390;
+  --mainWhite: #f3f3f3;
+  --mainDark: #235528;
+  --mainBlue: #27496d;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--mainWhite) !important;
+  color: var(--mainDarl) !important;
+}
