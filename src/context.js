@@ -60,7 +60,7 @@ class ProductProvider extends Component {
         };
       },
       () => {
-        console.log(this.state);
+        this.addTotal();
       }
       
     );
@@ -94,6 +94,21 @@ class ProductProvider extends Component {
 
   clearCart = (id) => {
     console.log("clearCart method");
+  }
+
+  addTotal = () => {
+    let subTotal = 0;
+    this.state.cart.map(item => (subTotal += item.total));
+    const tempTax = subTotal * 0.13;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    this.setState(()=> {
+      return {
+        cartSubTotal: subTotal,
+        cartTax: tax,
+        cartTotal: total
+      }
+    })
   }
 
   
