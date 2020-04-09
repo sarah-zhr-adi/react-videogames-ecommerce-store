@@ -6,6 +6,7 @@ import {ProductConsumer} from './../../context';
 import CartList from './CartList';
 import CartTotal from './CartTotal';
 
+
 const Cart = () => {
   return (
     <section>
@@ -19,7 +20,7 @@ const Cart = () => {
                   <Title name="your" title="cart"/>
                   <CartColumns/>
                   <CartList value={value}/>
-                  <CartTotal value={value}/>
+                  <CartTotal value={value} />
                   </>
               )
             } else {
