@@ -17,6 +17,18 @@ class ProductProvider extends Component {
 
   componentDidMount(){
     this.setProducts();
+    const cart = localStorage.getItem('myCart');
+    const cartTotal = localStorage.getItem('cartTotal');
+    const cartTax = localStorage.getItem('cartTax');
+    const cartSubTotal = localStorage.getItem('cartSubTotal');
+    this.setState(
+      {
+        cart: JSON.parse(cart) ? JSON.parse(cart) : [],
+        cartTotal: JSON.parse(cartTotal) ? JSON.parse(cartTotal) : 0,
+        cartTax: JSON.parse(cartTax) ? JSON.parse(cartTax) : 0,
+        cartSubTotal: JSON.parse(cartSubTotal) ? JSON.parse(cartSubTotal) : 0
+      }, this.addTotal()
+    );
   }
 
   setProducts = () => {
@@ -61,6 +73,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotal();
+        localStorage.setItem('myCart', JSON.stringify(this.state.cart));
       }
       
     );
@@ -155,7 +168,7 @@ class ProductProvider extends Component {
       this.addTotal();
     })
   }
-
+  
   addTotal = () => {
     let subTotal = 0;
     this.state.cart.map(item => (subTotal += item.total));
@@ -168,6 +181,10 @@ class ProductProvider extends Component {
         cartTax: tax,
         cartTotal: total
       }
+    },
+    () => {
+      localStorage.setItem('cartTax', JSON.stringify(this.state.cartTax));
+      localStorage.setItem('cartSubTotal', JSON.stringify(this.state.cartSubTotal));localStorage.setItem('cartTotal', JSON.stringify(this.state.cartTotal));
     })
   }
 

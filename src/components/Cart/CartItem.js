@@ -5,34 +5,35 @@ export default function CartList({ item, value }){
   const { increment, decrement, removeItem } = value;
   return(
     
-      <div className="row my-2 text-capitalize text-center">
-        <div className="col-10 mx-auto col-lg-2">
-          <img src={img} style={{width:'5rem', height:'5rem'}} className="img-fluid" alt="product" />
+      <div className="row my-2 text-capitalize text-center cart-items">
+
+        <div className="col-10 my-auto col-lg-2">
+          <div className="cart-remove" onClick={()=>removeItem(id)}>
+            <i className="fa fa-trash"></i>
+          </div>
         </div>
-        <div className="col-10 mx-auto col-lg-2">
+        <div className="col-10 my-auto col-lg-2">
+          <img src={img} className="img-fluid" alt="product" />
+        </div>
+        <div className="col-10 my-auto col-lg-2">
           <span className="d-lg-none">Product:</span>
           { title }
         </div>
-        <div className="col-10 mx-auto col-lg-2">
+        <div className="col-10 my-auto col-lg-2">
           <span className="d-lg-none">Price:</span>
-          { price }
+          ${ price }
         </div>
-        <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
-          <div className="d-flex justify-content-center">
-            <div>
+        <div className="col-10 my-auto col-lg-2 my-2 my-lg-0 d-flex justify-content-center align-items-center">
+          <div>
+            <div className="quantity-btn d-flex justify-content-center">
               <span className="btn btn-black mx-1" onClick={()=>decrement(id)}>-</span>
-              <span className="btn btn-black mx-1">{count}</span>
+              <span className="btn mx-1 count">{count}</span>
               <span className="btn btn-black mx-1" onClick={()=>increment(id)}>+</span>
             </div>
           </div>
         </div>
-        <div className="col-10 mx-auto col-lg-2">
-          <div className="cart-item" onClick={()=>removeItem(id)}>
-            <i className="fa fa-trash"></i>
-          </div>
-        </div>
-        <div className="col-10 mx-auto col-lg-2">
-          <strong>item total : $ { total }</strong>
+        <div className="col-10 my-auto col-lg-2">
+          <strong>$ { total }</strong>
         </div>
       </div>
   )

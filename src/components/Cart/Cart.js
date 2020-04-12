@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from "./../Title/Title";
+import Title from "./../Title";
 import CartColumns from './CartColumns';
 import EmptyCart from './EmptyCart';
 import {ProductConsumer} from './../../context';
@@ -17,7 +17,7 @@ const Cart = () => {
             if( cart.length > 0 ){
               return (
                   <>
-                  <Title name="your" title="cart"/>
+                  <h2 className="m-4 text-uppercase">Cart</h2>
                   <CartColumns/>
                   <CartList value={value}/>
                   <CartTotal value={value} />

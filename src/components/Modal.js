@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ProductConsumer } from '../../context';
-import { ButtonContainer } from '../../styled-components/Button';
+import { ProductConsumer } from './../context';
+import { ButtonContainer } from '../styled-components/Button';
 
 
 export default class Details extends Component {
@@ -22,21 +22,21 @@ export default class Details extends Component {
                 <ModalContainer>
                 <div className="container">
                   <div className="row">
-                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize p-5">
+                    <div id="modal" className="col-12 mx-auto col-md-10 col-lg-6 text-center text-capitalize p-5">
                       <h5>Item added to the cart!</h5>
-                      <img src={img} className="img-fluid" alt="product"></img>
-                      <h5>{title}</h5>
-                      <h5 className="text-muted">price: ${price}</h5>
-                      <Link to="/">
-                        <ButtonContainer onClick={()=>closeModal()}>
-                          Continue Shopping
-                        </ButtonContainer>
-                      </Link>
+                      <div className="modal-btns-container">
                       <Link to="/cart">
-                        <ButtonContainer cart onClick={()=>closeModal()}>
-                          Go to cart
-                        </ButtonContainer>
-                      </Link>
+                          <ButtonContainer cart onClick={()=>closeModal()}>
+                            View Cart
+                          </ButtonContainer>
+                        </Link>
+                        <Link to="/">
+                          <button className="cart-btn" onClick={()=>closeModal()}>
+                            Continue Shopping
+                          </button>
+                        </Link>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
