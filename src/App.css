@@ -65,7 +65,7 @@ a {
 
 .text-title h1 {
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
   font-size: 1.9rem;
 }
 
@@ -190,4 +190,3 @@ a {
   }
   
 }
-
